@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/lab1/login")
@@ -16,9 +16,9 @@ public class Auth {
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.POST)
-    public String login(Model model) {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("password") String password,
+                        Model model) {
 
         if ("poly".equals(username) && "123".equals(password)) {
             model.addAttribute("message", "Login successful!");
