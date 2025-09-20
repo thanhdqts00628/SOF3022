@@ -10,13 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/lab1/login")
 public class Auth {
-    final
-    HttpServletRequest request;
-
-    public Auth(HttpServletRequest request) {
-        this.request = request;
-    }
-
     @RequestMapping("/form")
     public String form() {
         return "lab1/form";
