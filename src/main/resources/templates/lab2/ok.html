@@ -11,5 +11,8 @@
     <button formmethod="get">OK 2</button>
     <button formaction="/ctrl/ok?x">OK 3</button>
 </form>
+<div th:if="${methodName != null}" class="alert method-box">
+    <span th:text="${methodName}"></span>
+</div>
 </body>
 </html>

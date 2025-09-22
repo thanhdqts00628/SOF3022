@@ -1,6 +1,9 @@
 package poly.edu.controller.lab2;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -11,15 +14,21 @@ class OkController {
         return "lab2/ok";
     }
 
-    public String m1() {
+    @PostMapping("/ok")
+    public String m1(Model model) {
+        model.addAttribute("methodName", "m1");
         return "lab2/ok";
     }
 
-    public String m2() {
+    @GetMapping("/ok")
+    public String m2(Model model) {
+        model.addAttribute("methodName", "m2");
         return "lab2/ok";
     }
 
-    public String m3() {
+    @PostMapping(value = "/ok", params = "x")
+    public String m3(Model model) {
+        model.addAttribute("methodName", "m3");
         return "lab2/ok";
     }
 }
