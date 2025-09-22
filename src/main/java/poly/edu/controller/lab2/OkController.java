@@ -9,11 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/ctrl")
 class OkController {
-    @RequestMapping("/ok")
-    public String ok() {
-        return "lab2/ok";
-    }
-
     @PostMapping("/ok")
     public String m1(Model model) {
         model.addAttribute("methodName", "m1");
