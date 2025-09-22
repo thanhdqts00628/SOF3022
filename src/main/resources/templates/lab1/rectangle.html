@@ -1,53 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common_head :: common_head('Rectangle Calculator')">
-    <!-- Bootstrap is included via common_head.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle Calculator</title>
+    <link rel="stylesheet" href="/lab1/common.css">
 </head>
-<body class="bg-dark d-flex justify-content-center align-items-center" style="height: 80vh;">
-<form action="/lab1/rectangle/calc" method="post" class="border rounded bg-light p-4"
-      style="width: 400px; text-align: center;">
-
-    <!-- Header -->
-    <h2 class="mb-4">Rectangle Calculator</h2>
-
-    <!-- Width input -->
-    <div class="form-group mb-3 text-start">
-        <label for="width" class="form-label">Width</label>
-        <input type="number" id="width" name="width" class="form-control" min="0" step="any" required
-               th:value="${width}">
+<body>
+<form action="/lab1/rectangle/calc" method="post">
+    <h2>Rectangle Calculator</h2>
+    <div>
+        <label for="width">Width</label>
+        <input type="number" id="width" name="width" min="0" step="any" required th:value="${width}">
     </div>
-
-    <!-- Length input -->
-    <div class="form-group mb-3 text-start">
-        <label for="length" class="form-label">Length</label>
-        <input type="number" id="length" name="length" class="form-control" min="0" step="any" required
-               th:value="${length}">
+    <div>
+        <label for="length">Length</label>
+        <input type="number" id="length" name="length" min="0" step="any" required th:value="${length}">
     </div>
-
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary w-100">Calculate</button>
-
-    <!-- Result alert -->
-    <div th:if="${perimeter != null}" class="alert alert-info mt-3" role="alert" id="result-alert">
+    <button type="submit">Calculate</button>
+    <div th:if="${perimeter != null}" class="alert" id="result-alert">
         Perimeter: <span th:text="${perimeter}"></span><br>
         Area: <span th:text="${area}"></span>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var alertBox = document.getElementById('result-alert');
+            const alertBox = document.getElementById('result-alert');
             if (alertBox) {
                 setTimeout(function () {
-                    alertBox.classList.remove('show');
-                    alertBox.classList.add('fade');
-                    setTimeout(function () {
-                        alertBox.style.display = 'none';
-                    }, 500);
-                }, 5000); // Hide after 5 seconds
+                    alertBox.style.display = 'none';
+                }, 5000);
             }
         });
     </script>
-
 </form>
 </body>
 </html>
-
