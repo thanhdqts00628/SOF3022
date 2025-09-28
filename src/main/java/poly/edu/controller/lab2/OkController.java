@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/ctrl")
+@RequestMapping("/lab2/ctrl")
 class OkController {
     @PostMapping("/ok")
     public String m1(Model model) {

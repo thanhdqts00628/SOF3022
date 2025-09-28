@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<form action="/param/save/2025" method="get" class="glass-card" th:if="${y != null}">
+<form action="/lab2/param/save/2025" method="post">
     <label class="glass-card textfield">
         <input name="y" th:value="${y}"/>
     </label>
     <button class="glass-card">Save</button>
 </form>
-<ul class="alert method-box glass-card" th:if="${x != null} and ${y != null}">
+<ul class="method-box glass-card" th:if="${x != null} and ${y != null}">
     <li th:text="${x}">?x</li>
     <li th:text="${y}">?y</li>
 </ul>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+    <link rel="stylesheet" href="/lab2/common.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="method-box glass-card">
+    <!-- Message from model -->
+    <h1 th:text="${message} ?: 'No message'">No message</h1>
+</div>
+
+<div class="method-box glass-card">
+    <!-- Message from query param -->
+    <h1 th:text="${param.message} ?: 'No param message'">No param message</h1>
+</div>
+</body>
+</html>

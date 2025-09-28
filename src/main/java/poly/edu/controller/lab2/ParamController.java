@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/param")
+@RequestMapping("/lab2/param")
 class ParamController {
 
     @RequestMapping("/form")

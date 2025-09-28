@@ -77,3 +77,27 @@ button:hover {
     background: rgba(255,255,255,0.1);
 }
 
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+.pagination {
+    text-align: center;
+}
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: normal;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+.pagination a.active {
+    font-weight: bold;
+    background: rgba(255,255,255,0.2);
+    color: #222;
+    border-radius: 20px; /* More rounded */
+}
