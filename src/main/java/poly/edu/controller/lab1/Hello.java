@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-class hello {
+class Hello {
     @RequestMapping("/lab1/hello")
     public String sayHello(Model model) {
         model.addAttribute("title", "FPT Polytechnic");

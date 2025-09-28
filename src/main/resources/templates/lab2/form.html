@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+    <link rel="stylesheet" href="/lab2/common.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<form action="/lab2/param/save/2025" method="post">
+    <label class="glass-card textfield">
+        <input name="y" th:value="${y}"/>
+    </label>
+    <button class="glass-card">Save</button>
+</form>
+<ul class="method-box glass-card" th:if="${x != null} and ${y != null}">
+    <li th:text="${x}">?x</li>
+    <li th:text="${y}">?y</li>
+</ul>
+</body>
+</html>

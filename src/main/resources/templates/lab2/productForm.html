@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+    <link rel="stylesheet" href="/lab2/common.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<form action="/lab2/product/save" method="post">
+    <label class="glass-card textfield">
+        <input name="name" placeholder="Name" autocomplete="off"/>
+    </label>
+    <label class="glass-card textfield">
+        <input name="price" placeholder="Price" autocomplete="off"/>
+    </label>
+    <button class="glass-card">Save</button>
+</form>
+<ul class="method-box glass-card" th:if="${product != null}">
+    <li>Name: <span th:text="${product.name}"></span></li>
+    <li>Price: <span th:text="${product.price}"></span></li>
+</ul>
+</body>
+</html>

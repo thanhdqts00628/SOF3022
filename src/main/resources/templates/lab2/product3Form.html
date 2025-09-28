@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bai 6</title>
+    <link rel="stylesheet" th:href="@{/lab2/common.css}"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+<div class="centered-container">
+    <table class="glass-card method-box" style="width: 250px;">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pagination glass-card">
+    <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+        <a th:href="@{'/lab2/products3'(page=${i},size=${size})}" th:text="${i+1}"
+           th:classappend="${page==i} ? 'active' : ''"></a>
+    </span>
+</div>
+</body>
+</html>

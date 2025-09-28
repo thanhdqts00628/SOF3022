@@ -1,45 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="common_head :: common_head('Login')">
-    <!-- Bootstrap is included via common_head.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/lab1/common.css">
 </head>
-<body class="bg-dark d-flex justify-content-center align-items-center" style="height: 80vh;">
-<form action="/lab1/login/check" method="post" class="login-form border rounded bg-light p-4"
-      style="width: 400px; text-align: center;">
-
-    <!-- Header -->
-    <h2 class="mb-4">Login</h2>
-
-    <!-- Username input -->
-    <div class="form-group mb-3 text-start">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" id="username" name="username" class="form-control" required>
+<body>
+<form action="/lab1/login/check" method="post">
+    <h2>Login</h2>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
     </div>
-
-    <!-- Password input -->
-    <div class="form-group mb-3 text-start">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" id="password" name="password" class="form-control" required>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
     </div>
-
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary w-100">Login</button>
-
-    <!-- Result alert -->
-    <div th:if="${message}" class="alert alert-danger mt-3" role="alert" id="login-alert">
+    <button type="submit">Login</button>
+    <div th:if="${message}" class="alert" id="login-alert">
         <span th:text="${message}"></span>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var alertBox = document.getElementById('login-alert');
+        document.addEventListener('DOMContentLoaded', function () {
+            const alertBox = document.getElementById('login-alert');
             if (alertBox) {
-                setTimeout(function() {
-                    // Use Bootstrap's fade out if available, else just hide
-                    alertBox.classList.remove('show');
-                    alertBox.classList.add('fade');
-                    setTimeout(function() {
-                        alertBox.style.display = 'none';
-                    }, 500); // fade duration
+                setTimeout(function () {
+                    alertBox.style.display = 'none';
                 }, 3000);
             }
         });

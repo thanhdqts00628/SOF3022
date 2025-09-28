@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+    <link rel="stylesheet" href="/lab2/common.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<form action="/lab2/product2/save" method="post">
+    <label class="glass-card textfield">
+        <input name="name" placeholder="Name" autocomplete="off"/>
+    </label>
+    <label class="glass-card textfield">
+        <input name="price" placeholder="Price"/>
+    </label>
+    <button class="glass-card">Save</button>
+</form>
+
+<!-- Current product -->
+<ul class="method-box glass-card" th:if="${product} != null">
+    <li><strong>Name:</strong> <span th:text="${product.name}">N/A</span></li>
+    <li><strong>Price:</strong> <span th:text="${product.price}">N/A</span></li>
+</ul>
+
+<!-- Next product (second newest) -->
+<ul class="method-box glass-card" th:if="${nextProduct} != null">
+    <li><strong>Name:</strong> <span th:text="${nextProduct.name}">N/A</span></li>
+    <li><strong>Price:</strong> <span th:text="${nextProduct.price}">N/A</span></li>
+</ul>
+
+<ul class="method-box glass-card" th:if="${products} != null">
+    <th:block th:each="item : ${products}">
+        <li style="margin-top: 10px">Name: <span th:text="${item.name} ?: 'N/A'"></span></li>
+        <li style="margin-bottom: 10px">Price: <span th:text="${item.price} ?: 'N/A'"></span></li>
+    </th:block>
+</ul>
+</body>
+</html>
