@@ -1,41 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rectangle Calculator</title>
-    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet" />
 </head>
-<body>
-<div class="centered-container">
-    <div class="glass-card">
-        <form action="/lab1/rectangle/calc" method="post">
-            <h2 class="text-center">Rectangle Calculator</h2>
-            <div>
-                <label for="width">Width</label>
-                <input type="number" id="width" name="width" min="0" step="any" placeholder="Enter width" required th:value="${width}">
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars">
+    <div class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
+        
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+                    
+                    <div class="card" style="max-width: 500px; width: 100%;">
+                        <div class="card-body">
+                            
+                            <h2 class="card-title text-center mb-4">Rectangle Calculator</h2>
+                            
+                            <form action="/lab1/rectangle/calc" method="post">
+                                
+                                <div class="mb-3">
+                                    <label for="width" class="form-label">Width</label>
+                                    <input type="number" id="width" name="width" class="form-control" min="0" step="any" placeholder="Enter width" required th:value="${width}">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="length" class="form-label">Length</label>
+                                    <input type="number" id="length" name="length" class="form-control" min="0" step="any" placeholder="Enter length" required th:value="${length}">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100">Calculate</button>
+                                
+                                <div th:if="${perimeter != null}" class="alert alert-success mt-3" id="result-alert">
+                                    <strong>Perimeter:</strong> <span th:text="${perimeter}"></span><br>
+                                    <strong>Area:</strong> <span th:text="${area}"></span>
+                                </div>
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-            <div>
-                <label for="length">Length</label>
-                <input type="number" id="length" name="length" min="0" step="any" placeholder="Enter length" required th:value="${length}">
-            </div>
-            <button type="submit" class="primary">Calculate</button>
-            <div th:if="${perimeter != null}" class="alert alert-success" id="result-alert">
-                <strong>Perimeter:</strong> <span th:text="${perimeter}"></span><br>
-                <strong>Area:</strong> <span th:text="${area}"></span>
-            </div>
-        </form>
+        </div>
+        
     </div>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const alertBox = document.getElementById('result-alert');
-        if (alertBox) {
-            setTimeout(function () {
-                alertBox.style.display = 'none';
-            }, 5000);
-        }
-    });
-</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/js/halfmoon.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const alertBox = document.getElementById('result-alert');
+            if (alertBox) {
+                setTimeout(function () {
+                    alertBox.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
 </body>
 </html>

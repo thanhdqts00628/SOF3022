@@ -1,30 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai 2</title>
-    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet" />
 </head>
-<body>
-<div class="centered-container">
-    <div class="glass-card">
-        <form action="/lab2/param/save/2025" method="post">
-            <h2 class="text-center">Parameter Test</h2>
-            <label class="textfield">
-                <span>Y Parameter</span>
-                <input name="y" type="text" placeholder="Enter Y value" th:value="${y}"/>
-            </label>
-            <button type="submit" class="primary">Save</button>
-        </form>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars">
+    <div class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
+        
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="d-flex flex-column justify-content-center align-items-center gap-3" style="min-height: 70vh;">
+                    
+                    <div class="card" style="max-width: 500px; width: 100%;">
+                        <div class="card-body">
+                            
+                            <h2 class="card-title text-center mb-4">Parameter Test</h2>
+                            
+                            <form action="/lab2/param/save/2025" method="post">
+                                
+                                <div class="mb-3">
+                                    <label for="y" class="form-label">Y Parameter</label>
+                                    <input name="y" id="y" type="text" class="form-control" placeholder="Enter Y value" th:value="${y}"/>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100">Save</button>
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="card" th:if="${x != null} and ${y != null}" style="max-width: 500px; width: 100%;">
+                        <div class="card-body">
+                            
+                            <h3 class="card-title text-center mb-3">Saved Parameters</h3>
+                            
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>X (from path):</strong> <span th:text="${x}">?x</span></li>
+                                <li class="list-group-item"><strong>Y (from form):</strong> <span th:text="${y}">?y</span></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
     </div>
-    <div class="method-box glass-card" th:if="${x != null} and ${y != null}">
-        <h3 class="text-center">Saved Parameters</h3>
-        <ul>
-            <li><strong>X (from path):</strong> <span th:text="${x}">?x</span></li>
-            <li><strong>Y (from form):</strong> <span th:text="${y}">?y</span></li>
-        </ul>
-    </div>
-</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/js/halfmoon.min.js"></script>
 </body>
 </html>

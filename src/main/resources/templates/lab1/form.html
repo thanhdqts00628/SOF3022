@@ -1,40 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet" />
 </head>
-<body>
-<div class="centered-container">
-    <div class="glass-card">
-        <form action="/lab1/login/check" method="post">
-            <h2 class="text-center">Login</h2>
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars">
+    <div class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
+        
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+                    
+                    <div class="card" style="max-width: 500px; width: 100%;">
+                        <div class="card-body">
+                            
+                            <h2 class="card-title text-center mb-4">Login</h2>
+                            
+                            <form action="/lab1/login/check" method="post">
+                                
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100">Login</button>
+                                
+                                <div th:if="${message}" class="alert alert-primary mt-3" id="login-alert">
+                                    <span th:text="${message}"></span>
+                                </div>
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter password" required>
-            </div>
-            <button type="submit" class="primary">Login</button>
-            <div th:if="${message}" class="alert alert-info" id="login-alert">
-                <span th:text="${message}"></span>
-            </div>
-        </form>
+        </div>
+        
     </div>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const alertBox = document.getElementById('login-alert');
-        if (alertBox) {
-            setTimeout(function () {
-                alertBox.style.display = 'none';
-            }, 3000);
-        }
-    });
-</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/js/halfmoon.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const alertBox = document.getElementById('login-alert');
+            if (alertBox) {
+                setTimeout(function () {
+                    alertBox.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
