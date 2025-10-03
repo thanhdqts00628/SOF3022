@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai 6</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}">
 </head>
 <body>
-<div class="centered-container">
-    <table class="glass-card method-box" style="width: 250px;">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="product : ${products}">
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.price}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="pagination glass-card">
-    <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
-        <a th:href="@{'/lab2/products3'(page=${i},size=${size})}" th:text="${i+1}"
-           th:classappend="${page==i} ? 'active' : ''"></a>
-    </span>
+<div class="container">
+    <div class="centered-container">
+        <h2 class="text-center">Product List with Pagination</h2>
+        <div class="glass-card">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.price}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination glass-card">
+            <span th:each="i : ${#numbers.sequence(0, totalPages - 1)}">
+                <a th:href="@{'/lab2/products3'(page=${i},size=${size})}" th:text="${i+1}"
+                   th:classappend="${page==i} ? 'active' : ''"></a>
+            </span>
+        </div>
+    </div>
 </div>
 </body>
 </html>

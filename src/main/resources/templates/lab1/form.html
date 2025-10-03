@@ -1,35 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}">
 </head>
 <body>
-<form action="/lab1/login/check" method="post">
-    <h2>Login</h2>
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required>
+<div class="centered-container">
+    <div class="glass-card">
+        <form action="/lab1/login/check" method="post">
+            <h2 class="text-center">Login</h2>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="primary">Login</button>
+            <div th:if="${message}" class="alert alert-info" id="login-alert">
+                <span th:text="${message}"></span>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Login</button>
-    <div th:if="${message}" class="alert" id="login-alert">
-        <span th:text="${message}"></span>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const alertBox = document.getElementById('login-alert');
-            if (alertBox) {
-                setTimeout(function () {
-                    alertBox.style.display = 'none';
-                }, 3000);
-            }
-        });
-    </script>
-
-</form>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const alertBox = document.getElementById('login-alert');
+        if (alertBox) {
+            setTimeout(function () {
+                alertBox.style.display = 'none';
+            }, 3000);
+        }
+    });
+</script>
 </body>
 </html>
