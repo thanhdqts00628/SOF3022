@@ -1,34 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai 3</title>
-    <link rel="stylesheet" th:href="@{/css/default.css}">
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet" />
 </head>
-<body>
-<div class="centered-container">
-    <div class="glass-card">
-        <form action="/lab2/product/save" method="post">
-            <h2 class="text-center">Product Form</h2>
-            <label class="textfield">
-                <span>Product Name</span>
-                <input name="name" type="text" placeholder="Enter product name" autocomplete="off"/>
-            </label>
-            <label class="textfield">
-                <span>Product Price</span>
-                <input name="price" type="number" step="0.01" placeholder="Enter price" autocomplete="off"/>
-            </label>
-            <button type="submit" class="primary">Save Product</button>
-        </form>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars">
+    <div class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
+        
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="d-flex flex-column justify-content-center align-items-center gap-3" style="min-height: 70vh;">
+                    
+                    <div class="card" style="max-width: 500px; width: 100%;">
+                        <div class="card-body">
+                            
+                            <h2 class="card-title text-center mb-4">Product Form</h2>
+                            
+                            <form action="/lab2/product/save" method="post">
+                                
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Product Name</label>
+                                    <input name="name" id="name" type="text" class="form-control" placeholder="Enter product name" autocomplete="off"/>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Product Price</label>
+                                    <input name="price" id="price" type="number" step="0.01" class="form-control" placeholder="Enter price" autocomplete="off"/>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100">Save Product</button>
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="card" th:if="${product != null}" style="max-width: 500px; width: 100%;">
+                        <div class="card-body">
+                            
+                            <h3 class="card-title text-center mb-3">Saved Product</h3>
+                            
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>Name:</strong> <span th:text="${product.name}"></span></li>
+                                <li class="list-group-item"><strong>Price:</strong> <span th:text="${product.price}"></span></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
     </div>
-    <div class="method-box glass-card" th:if="${product != null}">
-        <h3 class="text-center">Saved Product</h3>
-        <ul>
-            <li><strong>Name:</strong> <span th:text="${product.name}"></span></li>
-            <li><strong>Price:</strong> <span th:text="${product.price}"></span></li>
-        </ul>
-    </div>
-</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/js/halfmoon.min.js"></script>
 </body>
 </html>
