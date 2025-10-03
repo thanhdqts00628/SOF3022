@@ -1,5 +1,6 @@
 package poly.edu.model.lab4;
 
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,23 +15,26 @@ import java.util.Date;
 @Data
 public class Staff {
 
-    private String id;
+    @NotBlank(message = "Email không được để trống")
+    @Email(message = "Email không đúng định dạng")
+    private String email;
 
+    @NotBlank(message = "Tên không được để trống")
     private String name;
 
     @Builder.Default
     private String photo = "no-photo.jpg";
 
-    @Builder.Default
-    private boolean gender = false;
+    private boolean gender;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @Builder.Default
-    private Date dob = new Date();
+    @NotNull(message = "Ngày sinh không được để trống")
+    @Past(message = "Ngày sinh phải là ngày quá khứ")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dob;
 
-    @Builder.Default
-    private double salary = 123.456;
+    @Min(value = 100, message = "Lương phải >= 100")
+    @NotNull(message = "Lương không được để trống")
+    private Double salary;
 
-    @Builder.Default
-    private Integer level = 0;
+    private Integer level;
 }

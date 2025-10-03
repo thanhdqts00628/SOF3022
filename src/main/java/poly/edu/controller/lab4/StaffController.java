@@ -1,15 +1,17 @@
 package poly.edu.controller.lab4;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import poly.edu.model.lab4.Staff;
 
 @Controller
-@RequestMapping("/staff")
+@RequestMapping("/lab4/staff")
 class StaffController {
 
     @RequestMapping("/create/form")
@@ -19,13 +21,18 @@ class StaffController {
     }
 
     @RequestMapping("create/save")
-    public String createSave(Model model, @ModelAttribute("staff") Staff staff,
-                             @RequestPart("photo_file") MultipartFile photoFile) {
+    public String createSave(Model model, @Valid @ModelAttribute("staff") Staff staff, Errors errors,
+                             @RequestParam(value = "photo_file", required = false) MultipartFile photoFile) {
         // Gán tên ảnh được upload vào bean staff
-        if (!photoFile.isEmpty()) {
-            staff.setPhoto(photoFile.getName());
+        if (photoFile != null && !photoFile.isEmpty()) {
+            staff.setPhoto(photoFile.getOriginalFilename());
         }
-        model.addAttribute("message", "Xin chào " + staff.getName());
+
+        if (errors.hasErrors()) {
+            model.addAttribute("message", "Vui lòng sửa các lỗi sau!");
+            return "lab4/create-staff";
+        } else model.addAttribute("message", "Xin chào " + staff.getName());
+
         return "/lab4/create-staff";
     }
 }

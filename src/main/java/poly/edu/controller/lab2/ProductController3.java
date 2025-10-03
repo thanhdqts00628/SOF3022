@@ -25,7 +25,7 @@ public class ProductController3 {
      * @param model Spring MVC model to pass pagination data
      * @return template path for paginated product list
      */
-    @GetMapping("/lab2/products3")
+    @GetMapping("/lab2/product3")
     public String listProducts(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size,
