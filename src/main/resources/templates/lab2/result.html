@@ -2,17 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai 5</title>
+    <link rel="stylesheet" th:href="@{/css/default.css}">
 </head>
 <body>
-<div class="method-box glass-card">
-    <!-- Message from model -->
-    <h1 th:text="${message} ?: 'No message'">No message</h1>
-</div>
+<div class="centered-container">
+    <div class="method-box glass-card">
+        <h3 class="text-center">Message from Model</h3>
+        <p class="text-center" th:text="${message} ?: 'No message'">No message</p>
+    </div>
 
-<div class="method-box glass-card">
-    <!-- Message from query param -->
-    <h1 th:text="${param.message} ?: 'No param message'">No param message</h1>
+    <div class="method-box glass-card">
+        <h3 class="text-center">Message from Query Parameter</h3>
+        <p class="text-center" th:text="${param.message} ?: 'No param message'">No param message</p>
+    </div>
 </div>
 </body>
 </html>
