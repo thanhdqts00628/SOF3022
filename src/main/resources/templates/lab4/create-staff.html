@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Staff</title>
+    <link rel="stylesheet" href="/css/default.css">
+</head>
+<body>
+<div class="container glass-card">
+    <i th:text="${message}"></i>
+    <form th:object="${staff}" action="/staff/create/save" method="post" enctype="multipart/form-data" class="form">
+
+        <label> Email:
+            <input th:field="*{id}" class="textfield">
+        </label>
+
+        <label> Họ và tên:
+            <input th:field="*{name}" class="textfield">
+        </label>
+
+        <label> Giới tính:
+            <label><input type="radio" th:field="*{gender}" value="true">Nam</label>
+            <label><input type="radio" th:field="*{gender}" value="false">Nữ</label>
+        </label>
+
+        <label> Ngày sinh:
+            <input th:field="*{dob}" type="date" class="textfield">
+        </label>
+
+        <label> Hình ảnh:
+            <input th:field="*{photo}" type="hidden">
+            <input name="photo_file" type="file" class="textfield">
+        </label>
+
+        <label> Cấp bậc:
+            <select th:field="*{level}" class="textfield">
+                <option value="0">Úy</option>
+                <option value="1">Tá</option>
+                <option value="2">Tướng</option>
+            </select>
+        </label>
+
+        <label> Salary:
+            <input th:field="*{salary}" type="number" step="0.01" class="textfield">
+        </label>
+
+        <button type="submit" class="btn">Create</button>
+    </form>
+</div>
+</body>
+</html>
