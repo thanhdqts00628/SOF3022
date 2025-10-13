@@ -1,53 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet" />
 </head>
-
-<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars">
-    <div class="page-wrapper with-navbar with-sidebar" data-sidebar-type="overlayed-sm-and-down">
-        
-        <div class="content-wrapper">
-            <div class="container-fluid">
-                <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
-                    
-                    <div class="card" style="max-width: 500px; width: 100%;">
-                        <div class="card-body">
-                            
-                            <h2 class="card-title text-center mb-4">Login</h2>
-                            
-                            <form action="/lab1/login/check" method="post">
-                                
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required>
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
-                                </div>
-                                
-                                <button type="submit" class="btn btn-primary w-100">Login</button>
-                                
-                                <div th:if="${message}" class="alert alert-primary mt-3" id="login-alert">
-                                    <span th:text="${message}"></span>
-                                </div>
-                                
-                            </form>
-                            
-                        </div>
-                    </div>
-                    
-                </div>
+<body class="dark-mode">
+    <div class="flex justify-center items-center" style="min-height: 100vh;">
+        <form action="/lab1/login/check" method="post" class="w-full max-w-md p-8 rounded-lg shadow-lg bg-dark">
+            <h2 class="text-center mb-6">Login</h2>
+            <div class="mb-4">
+                <label for="username" class="block mb-1">Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required>
             </div>
-        </div>
-        
+            <div class="mb-4">
+                <label for="password" class="block mb-1">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Login</button>
+            <div th:if="${message}" class="alert mt-4" id="login-alert">
+                <span th:text="${message}"></span>
+            </div>
+        </form>
     </div>
-    
     <script src="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/js/halfmoon.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {

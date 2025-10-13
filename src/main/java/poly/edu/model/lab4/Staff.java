@@ -34,6 +34,7 @@ public class Staff {
 
     @Min(value = 100, message = "Lương phải >= 100")
     @NotNull(message = "Lương không được để trống")
+    @Digits(integer = 10, fraction = 2, message = "Lương không đúng định dạng")
     private Double salary;
 
     private Integer level;
