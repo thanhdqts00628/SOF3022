@@ -3116,7 +3116,7 @@ INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (11213, N'staff', '202
 INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (21205, N'staff', '2023-01-01 00:00:00', N'Shipping Address:');
 INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (21206, N'director', '2023-01-01 00:00:00', N'Shipping Address:');
 INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (21207, N'director', '2023-01-01 00:00:00', N'ORDER PURCHASING');
-INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (21208, N'director', '2023-01-01 00:00:00', N'Công cha như núi thái sơn;
+INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (21208, N'director', '2023-01-01 00:00:00', N'Công cha như núi thái sơn');
 INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (21209, N'director', '2023-01-01 00:00:00', N'© 2021 by FPT Polytechnic. All rights reserved.');
 INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (31205, N'staff', '2023-01-01 00:00:00', N'Shipping Address:');
 INSERT INTO Orders(Id,Username,CreateDate,Address) VALUES (31206, N'staff', '2023-01-01 00:00:00', N'Mishi Kobe Niku');
