@@ -26,7 +26,9 @@ public class MailController {
             mailService.send(mail);
             return "Mail của bạn đã được gửi đi";
         } catch (MessagingException e) {
-            return "Lỗi: " + e.getMessage();
+            // Log the error for debugging but don't expose details to user
+            e.printStackTrace();
+            return "Lỗi: Không thể gửi email. Vui lòng kiểm tra lại thông tin.";
         }
     }
     
@@ -37,7 +39,9 @@ public class MailController {
             mailService.push(mail);
             return "Mail đã được thêm vào hàng đợi";
         } catch (Exception e) {
-            return "Lỗi: " + e.getMessage();
+            // Log the error for debugging but don't expose details to user
+            e.printStackTrace();
+            return "Lỗi: Không thể thêm email vào hàng đợi.";
         }
     }
 }
