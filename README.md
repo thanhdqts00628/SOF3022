@@ -49,6 +49,8 @@ spring.datasource.username=root
 spring.datasource.password=root
 ```
 
+**Security Note:** The `useSSL=false` setting is for development only. In production, enable SSL for database connections.
+
 ## Running the Application
 
 ```bash
@@ -67,6 +69,7 @@ java -jar target/OnlineShoppingSystem-0.0.1-SNAPSHOT.war
 1. **Login**: Navigate to http://localhost:8080/auth/login
    - Use any username/password from the Accounts table in the database
    - Example: username: `customer`, password: `123`
+   - **Note:** This is sample data for development. In production, use strong passwords and proper password hashing.
 
 2. **Send Mail**: After login, you'll be redirected to http://localhost:8080/mail/form
    - Fill in the mail form with from, to, subject, body
@@ -86,6 +89,30 @@ java -jar target/OnlineShoppingSystem-0.0.1-SNAPSHOT.war
 - `POST /mail/send` - Send mail immediately (secured)
 - `POST /mail/push` - Add mail to queue (secured)
 - `GET /access-history` - View access logs (secured)
+
+## Security Considerations
+
+**Important:** This is a student project for learning purposes. For production use, implement the following:
+
+1. **Password Security**: 
+   - Current implementation stores passwords in plain text
+   - Use Spring Security with BCrypt password encoder for production
+   - Never store passwords in plain text
+
+2. **Database Security**: 
+   - Enable SSL for database connections
+   - Use environment variables for sensitive credentials
+   - Never commit credentials to version control
+
+3. **Mail Configuration**: 
+   - Use environment variables for mail credentials
+   - Never commit email passwords to Git
+   - Use OAuth2 instead of app passwords when possible
+
+4. **Session Security**: 
+   - Configure secure session management
+   - Use HTTPS in production
+   - Implement CSRF protection
 
 ## Technologies Used
 
